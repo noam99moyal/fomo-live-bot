@@ -7,10 +7,6 @@ Copies traders you already follow on FOMO. Size and exits are locked before the 
 Starts in paper. Real orders only after you type `go live` and the FOMO account is logged in and funded.
 
 Every stamp and report starts with `mode: paper` or `mode: live`.
-
-Template: [Fomo Live Bot on x.ai](https://x.ai/bot/4fmde5VhCGJGeCiqn96D3)  
-Docs repo: https://github.com/noam99moyal/fomo-live-bot
-
 ---
 
 ## Install
