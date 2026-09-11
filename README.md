@@ -17,8 +17,6 @@ Every stamp and report starts with `mode: paper` or `mode: live`.
 3. Open the new agent chat and finish **first-run** (checklist below).
 4. Sign into FOMO in the agent's browser when asked (Apple or Google). Fund the FOMO account before you type `go live`.
 
-Direct link: https://x.ai/bot/4fmde5VhCGJGeCiqn96D3
-
 ---
 
 ## How it works
