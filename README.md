@@ -8,10 +8,8 @@ Fomo Live tracks the traders you choose to follow and copies their moves to your
 
 ## Install
 
-1. Open the template: **[Fomo Live Bot on x.ai](https://x.ai/bot/4fmde5VhCGJGeCiqn96D3)**
-2. Click **Add to Grok Bot** (install [Grok Bot](https://docs.x.ai/grok-bot/get-started) first if needed).
-3. Open the new agent chat and finish **first-run** (checklist below).
-4. Sign into FOMO in the agent's browser when asked (Apple or Google). Fund the FOMO account before you type `go live`.
+1. Open the Grok Bot template: **[Fomo Live Bot on x.ai](https://x.ai/bot/4fmde5VhCGJGeCiqn96D3)**
+2. Open the new agent chat and finish **first-run** (checklist below).34. Sign into FOMO in the agent's browser when asked (Apple or Google). Fund the FOMO account before you type `go live`.
 
 ---
 
