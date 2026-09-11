@@ -1,8 +1,8 @@
 # Fomo Live Bot
 
-Hourly copy trading for [FOMO](https://fomo.family)
+An automated bot that mirrors trader activity on [FOMO](https://fomo.family), hourly.
 
-Copies traders you already follow on FOMO. Size and exits are locked before the bot runs. 
+Fomo Live tracks the traders you choose to follow and copies their moves to your own account — in paper or live mode — using entry and exit rules you set in advance.
 
 ---
 
