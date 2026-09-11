@@ -1,40 +1,46 @@
 # Fomo Live Bot
 
-Hourly, paper-first copy trading for [FOMO](https://fomo.family).
+Hourly copy trading for [FOMO](https://fomo.family), paper first.
 
-It copies traders you **already follow** on FOMO, with locked size and exits. Starts in **paper**. Real orders only after you type `go live` and the FOMO account is logged in and funded.
+Copies traders you already follow on FOMO. Size and exits are locked before the bot runs; it does not change them mid-trade. Starts in paper. Real orders only after you type `go live` and the FOMO account is logged in and funded.
 
-> **Paper first.** Every stamp and report leads with `mode: paper` or `mode: live` so you never confuse the two.
+Every stamp and report starts with `mode: paper` or `mode: live`.
+
+Template: [Fomo Live Bot on x.ai](https://x.ai/bot/4fmde5VhCGJGeCiqn96D3)  
+Docs repo: https://github.com/noam99moyal/fomo-live-bot
 
 ---
 
-## How to download / install
+## Install
 
-1. Open **Grok Bot**.
-2. Import the public template **Fomo Live Bot** (from the template / share page once it’s published).
-3. Open the new agent chat and complete **first-run** (locks below).
-4. Sign into FOMO in the agent’s browser when asked (Apple or Google). The bot never finishes login or 2FA for you.
-5. Keep money in the FOMO account **before** you ever say `go live`. Empty balance → live is refused with a clear reminder.
+1. Open the template: **[Fomo Live Bot on x.ai](https://x.ai/bot/4fmde5VhCGJGeCiqn96D3)**
+2. Click **Add to Grok Bot** (install [Grok Bot](https://docs.x.ai/grok-bot/get-started) first if needed).
+3. Review what's included, then add. You get your own copy, not the creator's computer, logins, or chat history.
+4. Open the new agent chat and finish **first-run** (checklist below).
+5. Sign into FOMO in the agent's browser when asked (Apple or Google). The bot does not finish login or 2FA for you.
+6. Fund the FOMO account before you type `go live`. Empty balance means live is refused, with a clear reminder.
 
-This repo is the public docs + source of truth for how the bot behaves. The runnable bot is the Grok Bot template.
+This repo is the public docs. The runnable bot is the Grok Bot template above.
+
+Direct link: https://x.ai/bot/4fmde5VhCGJGeCiqn96D3
 
 ---
 
 ## How it works
 
-### Signal source
+### Signals
 
-- Signed-in **fomo.family** browser session on the agent’s computer.
-- Allowlist = your FOMO **Following** list (trim/rename before lock).
-- One allowlist per bot. New follows after lock do **not** auto-join.
-- Want two books? Run two Fomo Live Bot agents.
+- Uses a signed-in **fomo.family** browser session on the agent's computer.
+- Allowlist = your FOMO **Following** list. Trim or rename before you lock.
+- One allowlist per bot. New follows after lock do not join automatically.
+- Two books? Run two Fomo Live Bot agents.
 
 ### Cadence
 
-- Hourly routine (`fomo-copy-hourly`) at the top of each hour.
-- Reads **new** buys/sells since the last successful run for allowlisted traders only.
-- Quiet on a clean run with nothing new.
-- **Never fails silent:** session errors, empty live balance, blocked caps, and read failures are reported in chat.
+- Hourly routine (`fomo-copy-hourly`), top of each hour.
+- Reads new buys and sells since the last successful run, allowlisted traders only.
+- Clean run with nothing new: quiet.
+- Failures are never silent: session errors, empty live balance, blocked caps, and read failures show up in chat.
 
 ### Size (pick one, then lock)
 
@@ -43,18 +49,18 @@ This repo is the public docs + source of truth for how the bot behaves. The runn
 | **Flat $** | Same dollar size on every copy buy |
 | **Mirror % + $ cap** | Percent of their trade size, never above your cap |
 
-Every **new** allowlist buy on the same token can add another fill (same trader again or another follow), unless a risk cap blocks it.
+A new allowlist buy on the same token can add another fill (same trader again, or another follow), unless a risk cap blocks it.
 
 ### Exits
 
-- **Stop-loss %** — optional (recommended). From your entry.
-- **Primary exit** — exactly one:
-  - **Mirror their sells** → then choose **Partial** (same fraction) or **Full on any sell** (first sell closes 100% of yours)
-  - **Take-profit** — fixed % from your entry; optional **trail from peak** after (default: skip)
-  - **Time stop** — exit after a fixed hold time
-- First match wins; the report names which rule fired.
+- **Stop-loss %** (optional, recommended). Measured from your entry.
+- **Primary exit** (pick exactly one):
+  - **Mirror their sells**, then **Partial** (same fraction) or **Full on any sell** (first sell closes 100% of yours)
+  - **Take-profit**: fixed % from your entry; optional **trail from peak** after (default: off)
+  - **Time stop**: exit after a fixed hold time
+- First match wins. The report names which rule fired.
 
-**Trail (optional after TP):** peak = highest price after your entry while still in. Trail % = pullback from that peak. A hard TP that hits first means trail never runs on that trade.
+**Trail (optional after TP).** Peak = highest price after your entry while still open. Trail % = pullback from that peak. If a hard TP hits first, trail does not run on that trade.
 
 ### Risk caps (all optional)
 
@@ -68,20 +74,20 @@ Every **new** allowlist buy on the same token can add another fill (same trader 
 |---------|--------|
 | *(default)* | `mode: paper` |
 | `go live` | Real FOMO orders if logged in **and** funded |
-| `back to paper` | Return to paper stamps |
+| `back to paper` | Back to paper stamps |
 
-Never auto-flips. Never deposits or withdraws for you.
+Never flips on its own. Never deposits or withdraws for you.
 
 ---
 
 ## First-run checklist
 
-1. Allowlist — confirm/trim FOMO follows  
-2. Size — flat `$` or mirror `%` + cap  
-3. Stop-loss — set or skip  
-4. Primary exit — mirror / take-profit / time stop (+ mirror style or TP% / optional trail)  
-5. Risk caps — set or skip all  
-6. Lock summary → enable hourly routine → session check  
+1. Allowlist - confirm or trim FOMO follows
+2. Size - flat `$` or mirror `%` + cap
+3. Stop-loss - set or skip
+4. Primary exit - mirror / take-profit / time stop (+ mirror style, or TP% / optional trail)
+5. Risk caps - set or skip all
+6. Lock summary, enable hourly routine, session check
 
 ---
 
@@ -92,23 +98,25 @@ mode: paper
 FILL buy TOKEN $25 @ … reason: copy @trader
 
 mode: live
-REFUSED go live — FOMO balance empty; fund the account first
+REFUSED go live - FOMO balance empty; fund the account first
 
 mode: paper
-SKIP buy TOKEN — max $ per token
+SKIP buy TOKEN - max $ per token
 ```
 
 ---
 
 ## What this bot will not do
 
-- Invent traders outside your locked allowlist  
-- Change size/exits trade-by-trade  
-- Complete FOMO login / 2FA / deposits  
-- Stay quiet when something failed  
+- Invent traders outside your locked allowlist
+- Change size or exits trade by trade
+- Complete FOMO login, 2FA, or deposits
+- Stay quiet when something failed
 
 ---
 
 ## Repo
 
-Public docs for **Fomo Live Bot**. Issues and README updates welcome once the template is live.
+Public docs for **Fomo Live Bot**: https://github.com/noam99moyal/fomo-live-bot
+
+Runnable template: https://x.ai/bot/4fmde5VhCGJGeCiqn96D3
