@@ -23,6 +23,14 @@ Starts in paper. Real orders only after you type `go live` and the FOMO account 
 
 Every stamp and report starts with `mode: paper` or `mode: live`.
 
+| Command | Effect |
+|---------|--------|
+| *(default)* | `mode: paper` |
+| `go live` | Real FOMO orders if logged in **and** funded |
+| `back to paper` | Back to paper stamps |
+
+Never flips on its own. Never deposits or withdraws for you.
+
 ### Signals
 
 - Uses a signed-in **fomo.family** browser session on the agent's computer.
@@ -62,16 +70,6 @@ A new allowlist buy on the same token can add another fill (same trader again, o
 - Max `$` per token (total open in one coin)
 - Max concurrent positions
 - Max `$` / day (new buy notional, your local calendar day)
-
-### Modes
-
-| Command | Effect |
-|---------|--------|
-| *(default)* | `mode: paper` |
-| `go live` | Real FOMO orders if logged in **and** funded |
-| `back to paper` | Back to paper stamps |
-
-Never flips on its own. Never deposits or withdraws for you.
 
 ---
 
