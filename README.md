@@ -35,7 +35,7 @@ Never flips on its own. Never deposits or withdraws for you.
 
 - Uses a signed-in **fomo.family** browser session on the agent's computer.
 - Allowlist = your FOMO **Following** list. Trim or rename before you lock.
-- One allowlist per bot. New FOMO follows after lock are not copied automatically — on weekdays the bot checks Following vs the allowlist and asks if you want to add anyone new (never auto-adds).
+- One allowlist per bot. New FOMO follows after lock are not copied automatically: on weekdays the bot checks Following vs the allowlist and asks if you want to add anyone new (never auto-adds).
 - Each bot is one book (one allowlist + one size/exit setup). Want a second group of traders or different rules? Run a second Fomo Live Bot.
 
 ### Cadence
