@@ -10,11 +10,16 @@ Fomo Live tracks the traders you choose to follow and copies their moves to your
 
 1. Open the Grok Bot template: **[Fomo Live Bot on x.ai](https://x.ai/bot/4fmde5VhCGJGeCiqn96D3)**
 2. Open the new agent chat and finish **first-run** (checklist below).
-3. Sign into FOMO in the agent's browser when asked (Apple or Google). Fund the FOMO account before you type `go live`.
 
 ---
 
 ## How it works
+
+### FOMO login and funds
+
+The bot reads follows and trades from a signed-in **fomo.family** browser session. You sign in yourself (Apple or Google). The bot does not finish login, 2FA, deposits, or withdrawals.
+
+**Paper** does not need a FOMO balance. **Live** does. Money must already be in the FOMO account before you type `go live`. If the session is missing or the balance is empty, live is refused and you get a clear reminder.
 
 ### Paper and live
 
