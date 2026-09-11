@@ -1,11 +1,8 @@
 # Fomo Live Bot
 
-Hourly copy trading for [FOMO](https://fomo.family), paper first.
+Hourly copy trading for [FOMO](https://fomo.family)
 
-Copies traders you already follow on FOMO. Size and exits are locked before the bot runs; it does not change them mid-trade.
-
-Template: [Fomo Live Bot on x.ai](https://x.ai/bot/4fmde5VhCGJGeCiqn96D3)  
-Docs repo: https://github.com/noam99moyal/fomo-live-bot
+Copies traders you already follow on FOMO. Size and exits are locked before the bot runs. 
 
 ---
 
@@ -13,14 +10,8 @@ Docs repo: https://github.com/noam99moyal/fomo-live-bot
 
 1. Open the template: **[Fomo Live Bot on x.ai](https://x.ai/bot/4fmde5VhCGJGeCiqn96D3)**
 2. Click **Add to Grok Bot** (install [Grok Bot](https://docs.x.ai/grok-bot/get-started) first if needed).
-3. Review what's included, then add. You get your own copy, not the creator's computer, logins, or chat history.
-4. Open the new agent chat and finish **first-run** (checklist below).
-5. Sign into FOMO in the agent's browser when asked (Apple or Google). The bot does not finish login or 2FA for you.
-6. Fund the FOMO account before you type `go live`. Empty balance means live is refused, with a clear reminder.
-
-This repo is the public docs. The runnable bot is the Grok Bot template above.
-
-Direct link: https://x.ai/bot/4fmde5VhCGJGeCiqn96D3
+3. Open the new agent chat and finish **first-run** (checklist below).
+4. Sign into FOMO in the agent's browser when asked (Apple or Google). Fund the FOMO account before you type `go live`.
 
 ---
 
@@ -35,9 +26,9 @@ Every stamp and report starts with `mode: paper` or `mode: live`.
 ### Signals
 
 - Uses a signed-in **fomo.family** browser session on the agent's computer.
-- Allowlist starts as your FOMO **Following** list (trim or rename before you lock). That locked list is who gets copied.
-- New FOMO follows after lock are **not** copied automatically. On weekdays the bot compares Following to the allowlist and **asks** if you want to add anyone new — it never auto-adds.
-- Each bot has **one** allowlist and one set of size/exit rules. If you want a second group of traders (or different size/exits), add another Fomo Live Bot and lock that one separately — two bots = two books.
+- Allowlist = your FOMO **Following** list. Trim or rename before you lock.
+- One allowlist per bot. New FOMO follows after lock are not copied automatically — on weekdays the bot checks Following vs the allowlist and asks if you want to add anyone new (never auto-adds).
+- Each bot is one book (one allowlist + one size/exit setup). Want a second group of traders or different rules? Run a second Fomo Live Bot.
 
 ### Cadence
 
@@ -51,9 +42,9 @@ Every stamp and report starts with `mode: paper` or `mode: live`.
 | Mode | Behavior |
 |------|----------|
 | **Flat $** | Same dollar size on every copy buy |
-| **Mirror % + $ cap** | You set the % and the $ cap. Applied to **their** trade size (e.g. they buy $400, you locked 25% → $100), never above your cap |
+| **Mirror % + $ cap** | Percent of their trade size, never above your cap |
 
-You choose flat $ or mirror % — the trader you copy does not set your size. A new allowlist buy on the same token can add another fill (same trader again, or another follow), unless a risk cap blocks it.
+A new allowlist buy on the same token can add another fill (same trader again, or another follow), unless a risk cap blocks it.
 
 ### Exits
 
@@ -111,6 +102,7 @@ SKIP buy TOKEN - max $ per token
 ---
 
 ## What this bot will not do
+
 - Invent traders outside your locked allowlist
 - Change size or exits trade by trade
 - Complete FOMO login, 2FA, or deposits
