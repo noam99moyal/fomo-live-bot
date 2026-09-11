@@ -2,7 +2,9 @@
 
 Hourly copy trading for [FOMO](https://fomo.family)
 
-Copies traders you already follow on FOMO. Size and exits are locked before the bot runs; it does not change them mid-trade. Starts in paper. Real orders only after you type `go live` and the FOMO account is logged in and funded.
+Copies traders you already follow on FOMO. Size and exits are locked before the bot runs. 
+
+Starts in paper. Real orders only after you type `go live` and the FOMO account is logged in and funded.
 
 Every stamp and report starts with `mode: paper` or `mode: live`.
 
