@@ -2,7 +2,7 @@
 
 Hourly, paper-first copy trading for [FOMO](https://fomo.family).
 
-It copies traders you **already follow** on FOMO, with locked size and exits — no discretion mid-trade. Starts in **paper**. Real orders only after you type `go live` and the FOMO account is logged in and funded.
+It copies traders you **already follow** on FOMO, with locked size and exits. Starts in **paper**. Real orders only after you type `go live` and the FOMO account is logged in and funded.
 
 > **Paper first.** Every stamp and report leads with `mode: paper` or `mode: live` so you never confuse the two.
 
